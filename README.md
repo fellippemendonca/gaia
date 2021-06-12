@@ -1,2 +1,2 @@
 # gaia
-Integrations for a greener future.
+Integrations for a green future.

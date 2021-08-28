@@ -5,6 +5,7 @@ import (
 	"github.com/gin-gonic/gin"
 
 	customers "github.com/fellippemendonca/gaia/server/controllers/customers"
+	forecasts "github.com/fellippemendonca/gaia/server/controllers/forecasts"
 )
 
 // InitRoutes routes
@@ -19,6 +20,6 @@ func InitRoutes(router *gin.Engine, svc *services.Services) {
 		api.GET("customers", customers.GetCustomers(svc))
 		api.GET("customers/:id", customers.GetUserByID(svc))
 		api.GET("customers/:id/paymentMethods", customers.GetIuguPaymentMethodsByCustomerID(svc))
-
+		api.GET("forecasts", forecasts.GetForecastByCoord(svc))
 	}
 }

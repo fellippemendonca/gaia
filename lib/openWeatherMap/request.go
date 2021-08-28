@@ -1,4 +1,4 @@
-package iugu
+package openWeatherMap
 
 import (
 	"encoding/base64"
@@ -8,7 +8,7 @@ import (
 )
 
 func getAuthorization() string {
-	token := ""
+	token := "d286f8ce21ad448ccbfc028b9344fe8d"
 	buffer := []byte(token)
 	converted := base64.StdEncoding.EncodeToString(buffer)
 	return "Basic" + " " + converted
@@ -16,7 +16,7 @@ func getAuthorization() string {
 
 func doRequest(method string, path string, body io.Reader) ([]byte, error) {
 	scheme := "https"
-	host := "api.iugu.com"
+	host := "api.openweathermap.org"
 	req, _ := http.NewRequest(method, scheme+"://"+host+path, body)
 	req.Header.Add("Authorization", getAuthorization())
 	req.Header.Add("Content-Type", "application/json")

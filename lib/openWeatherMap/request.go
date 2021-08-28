@@ -8,7 +8,7 @@ import (
 )
 
 func getAuthorization() string {
-	token := "d286f8ce21ad448ccbfc028b9344fe8d"
+	token := ""
 	buffer := []byte(token)
 	converted := base64.StdEncoding.EncodeToString(buffer)
 	return "Basic" + " " + converted

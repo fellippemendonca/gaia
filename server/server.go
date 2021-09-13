@@ -18,11 +18,7 @@ func Run() {
 	}
 
 	// Connect to required services
-	host := os.Getenv("POSTGRES_HOST")
-	user := os.Getenv("POSTGRES_USER")
-	pass := os.Getenv("POSTGRES_PASS")
-	db := os.Getenv("POSTGRES_DB")
-	postgresUrl := "postgres://" + user + ":" + pass + "@" + host + "/" + db + "?sslmode=disable"
+	postgresUrl := os.Getenv("POSTGRES_URL")
 	postgreConn := postgresql.Connect(postgresUrl)
 	defer postgreConn.Close()
 

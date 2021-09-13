@@ -1,16 +1,18 @@
 package postgresql
 
 import (
-	_ "github.com/lib/pq" // PostgreSQL driver
-
 	"database/sql"
+	// "os"
+
+	_ "github.com/lib/pq" // PostgreSQL driver
 
 	log "github.com/sirupsen/logrus"
 )
 
 // Connect to the PotgreSQL database and return the db connection
-func Connect() *sql.DB {
-	db, err := sql.Open("postgres", "postgres://administrator:password@192.168.178.5:5432/payment_service?sslmode=disable")
+func Connect(postgresUrl string) *sql.DB {
+
+	db, err := sql.Open("postgres", postgresUrl)
 	if err != nil {
 		log.Panic(err)
 	}

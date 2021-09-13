@@ -4,6 +4,8 @@ import (
 	"encoding/json"
 	"fmt"
 
+	"os"
+
 	log "github.com/sirupsen/logrus"
 )
 
@@ -71,7 +73,8 @@ type ResponseGetForecast struct {
 
 // GetForecastByCoord retrieve Forecast by geolocation coordinates
 func GetForecastByCoord(lat float64, lon float64) (*ResponseGetForecast, error) {
-	appId := "appid=c4041f209080cce62bf34a1365f1a13a"
+	token := os.Getenv("OPEN_WEATHER_APP_ID")
+	appId := "appid=" + token
 	units := "units=metric"
 	coord := "lat=" + fmt.Sprintf("%g", lat) + "&lon=" + fmt.Sprintf("%g", lon)
 	query := "?" + appId + "&" + units + "&" + coord

@@ -9,7 +9,7 @@ import (
 	log "github.com/sirupsen/logrus"
 )
 
-type Forecasts struct {
+type Forecast struct {
 	Dt   int32 `json:"dt"`
 	Main struct {
 		Temp      float64 `json:"temp"`
@@ -64,11 +64,11 @@ type City struct {
 }
 
 type ResponseGetForecast struct {
-	Cod     string      `json:"cod"`
-	Message int32       `json:"message"`
-	Cnt     int32       `json:"cnt"`
-	List    []Forecasts `json:"list"`
-	City    City        `json:"city"`
+	Cod     string     `json:"cod"`
+	Message int32      `json:"message"`
+	Cnt     int32      `json:"cnt"`
+	List    []Forecast `json:"list"`
+	City    City       `json:"city"`
 }
 
 // GetForecastByCoord retrieve Forecast by geolocation coordinates
